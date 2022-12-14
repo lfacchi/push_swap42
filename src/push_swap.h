@@ -10,3 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../42_libft/libft.h"
+# include <unistd.h>
+# include <stdio.h>
+
+typedef struct t_node
+{
+	int				num;
+	struct t_node	*next;
+}	t_node;
+
+
+// t_clist create_list(int *list, int size);
+t_node	*init_num(int v_node);
+void insert_node(t_node *node_list, t_node *node);

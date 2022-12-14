@@ -10,3 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
+.PHONY	= all clean fclean re
+
+NAME	= push_swap
+CC		= gcc
+#CFLAGS	= -Wall -Wextra -Werror
+FT		= ./42_libft/libft.a
+
+SRCS	= main.c push_swap.c
+OBJSDIR	= obj
+OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
+
+all: ${NAME}
+
+${NAME}: ${OBJSDIR} ${OBJS}
+	${CC} ${CFLAGS} ${OBJS} ${FT} -o $@
+
+${OBJSDIR}:
+	mkdir -p $@
+
+${OBJS}: | ${FT}
+
+${OBJSDIR}/%.o: src/%.c src/push_swap.h
+	${CC} ${CFLAGS} -c $< -o $@
+
+${FT}: 
+	@${MAKE} -C 42_libft
+
+# libft:
+# 	git clone https://github.com/lfacchi
+
+clean:
+	${MAKE} clean -C 42_libft
+	rm -rf ${OBJSDIR}
+
+fclean: clean
+	rm -rf 42_libft
+	rm -f ${NAME}
+
+re: fclean all
