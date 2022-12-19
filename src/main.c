@@ -14,39 +14,29 @@
 
 int main(int argc, char **argv)
 {
-	t_node *head;
-	t_node *node1;
-	t_node *node2;
-	t_node *node3;
-	t_node *node4;
-	
-	int n1 = 10;
-	int n2 = 20;
-	int n3 = 30;
-	int n4 = 40;
-
+	t_node **node_list;
+	// t_node *teste;
 	if (argc > 2)
 	{
-		printf("START\n");
-		
-		head = init_num(256);
-		node1 = init_num(n1);
-		node2 = init_num(n2);
-		node3 = init_num(n3);
-		node4 = init_num(n4);
-
-		printf("\nASSIGN NODES\n\n");
-
-		printf("%d\n", head->num);
-		printf("%d\n", node1->num);
-		printf("%d\n", node2->num);
-		printf("%d\n", node3->num);
-		printf("%d\n", node4->num);
-
-		printf("\nLINKIN NODES\n");
-		insert_node(head, node4);
-		printf("%d\n", head->next->num);
-
+		node_list = ft_calloc(argc - 1, sizeof(t_node*));
+		int i = 0;
+		int *list;
+		list = ft_calloc(argc - 1, sizeof(int));
+		while (argv[i])
+		{
+			list[i] = ft_atoi(argv[i + 1]);
+			node_list[i] = init_num(list[i]);
+			i++;
+		}
+		i = -1;
+		while (++i < argc - 1)
+			insert_front(node_list[i],node_list[i + 1]);
+		// teste = init_num(256);
+		// insert_back(node_list[0], teste);
+		print_list(*node_list);
+		// rotate_stack(*node_list);
+		// print_list(*node_list);
+		// rotate_stack(*node_list);
 	}
 	else
 	{

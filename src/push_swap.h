@@ -23,4 +23,7 @@ typedef struct t_node
 
 // t_clist create_list(int *list, int size);
 t_node	*init_num(int v_node);
-void insert_node(t_node *node_list, t_node *node);
+void insert_front(t_node *head, t_node *node);
+void insert_back(t_node *tail, t_node *node);
+void print_list(t_node *node);
+void rotate_stack(t_node *node);
