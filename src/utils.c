@@ -25,7 +25,11 @@ t_node	*init_num(int v_node)
 	else
 		return NULL;
 }
-
+/* 
+	@brief insert a node after the last node the head node
+	@param head pointer to head node of linked list
+	@param node pointer to node be added 
+ */
 void insert_front(t_node *head, t_node *node)
 {
 	if (!head)
@@ -66,14 +70,38 @@ void print_list(t_node *node)
 	}
 }
 
-// void free_list(t_node *node)
-// {
-// 	t_node *temp;
-// 	while(node)
-// 	{
-// 		temp = node->next;
-// 		free(node);
-// 		node = *temp;
-		
-// 	}
-// }
+int	top_value(t_node node)
+{
+	int top;
+	while(node.next)
+	{
+		node.num = node.next->num;
+		node = *node.next;
+	}
+	top = node.num;
+	return (top); 
+}
+
+t_node	**create_list(int *num_list)
+{
+	int i = 0;
+	int j;
+	t_node	**node_list;
+	t_node	*temp;
+
+	node_list = ft_calloc(1, sizeof(t_node *));
+	while(num_list[i])
+	{
+		if(i == 0)
+		{
+			*node_list = init_num(num_list[i]);
+		}
+		else
+		{
+			temp = init_num(num_list[i]);
+			insert_front(*node_list, temp);
+		}
+		i++;
+	}
+	return(node_list);
+}

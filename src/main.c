@@ -16,27 +16,23 @@ int main(int argc, char **argv)
 {
 	t_node **node_list;
 	// t_node *teste;
+	int *list;
+	t_node **stackb;
 	if (argc > 2)
 	{
-		node_list = ft_calloc(argc - 1, sizeof(t_node*));
-		int i = 0;
-		int *list;
+		node_list = ft_calloc(1, sizeof(t_node*));
+		stackb = ft_calloc(1, sizeof(t_node*));
+		*stackb = init_num(7);
+		insert_front(*stackb, init_num(7));
+		printf("\n");
+
+		int i = -1;
 		list = ft_calloc(argc - 1, sizeof(int));
-		while (argv[i])
-		{
+		print_list(stackb[0]);
+		while(++i < argc - 1)
 			list[i] = ft_atoi(argv[i + 1]);
-			node_list[i] = init_num(list[i]);
-			i++;
-		}
-		i = -1;
-		while (++i < argc - 1)
-			insert_front(node_list[i],node_list[i + 1]);
-		// teste = init_num(256);
-		// insert_back(node_list[0], teste);
+		node_list = create_list(list);
 		print_list(*node_list);
-		// rotate_stack(*node_list);
-		// print_list(*node_list);
-		// rotate_stack(*node_list);
 	}
 	else
 	{

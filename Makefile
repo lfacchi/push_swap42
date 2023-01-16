@@ -14,7 +14,7 @@
 
 NAME	= push_swap
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+# CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
 
 SRCS	= main.c push_swap.c moves.c utils.c

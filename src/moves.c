@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void rotate_stack(t_node *node)
+void move_r(t_node *node)
 {
 	int num;
 
@@ -25,8 +25,37 @@ void rotate_stack(t_node *node)
 	// insert_front(node, init_num(num));
 	node->num = num;
 }
+void move_rr(t_node *node)
+{
+	int top;
+	int temp;
+	top = top_value(*node);
+	temp = node->num; //1
+	node->num = top;
+	if(node->next)
+		top = node->next->num;
+	node = node->next;
+	while(node)
+	{
+		node->num = temp;
+		temp = top;
+		if (node->next)
+			top  = node->next->num;
+		node = node->next;
+	}
+}
 
-// void r_rotate_stack(t_node *node)
-// {
-	
-// }
+void move_s(t_node *node)
+{
+	int temp;
+
+	temp = node->num;
+	node->num = node->next->num;
+	node->next->num = temp;
+}
+
+void move_p(t_node *node1, t_node *node2)
+{
+	printf("1 - %d\n", node1->num);
+	printf("2 -%d\n", node2->num);
+}
