@@ -31,10 +31,7 @@ int main(int argc, char **argv)
 			list[i] = ft_atoi(argv[i + 1]);
 		listlen(list);
 		stacka = create_list(list, argc - 1);
-		move_p(stacka, *stackb);
-		move_p(stacka, *stackb);
-		move_p(stacka, *stackb);
-		move_p(stackb, *stacka);
+
 		print_list(*stackb);
 		printf("\n");
 		print_list(*stacka);

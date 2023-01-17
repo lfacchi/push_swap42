@@ -25,6 +25,7 @@ t_node	*init_num(int v_node)
 	else
 		return NULL;
 }
+
 /* 
 	@brief insert a node after the last node the head node
 	@param head pointer to head node of linked list
@@ -57,6 +58,7 @@ void insert_front(t_node *head, t_node *node)
 // 	insert_front(temp, new);
 // }
 
+/* @brief print all elements of an linked list */
 void print_list(t_node *node)
 {
 	int i;
@@ -86,6 +88,7 @@ int	top_value(t_node node)
 	return (top); 
 }
 
+/* @brief get the lenght of a integers list */
 int	listlen(int *list)
 {
 	int top;
@@ -116,6 +119,7 @@ t_node	**create_list(int *num_list, int n)
 	return(node_list);
 }
 
+/* @brief get the data and delete the first element of a linked list */
 int pop(t_node **node_list)
 {
     t_node	*head = *node_list;
@@ -126,6 +130,5 @@ int pop(t_node **node_list)
     if (*node_list == NULL)
         return -1;
     (*node_list) = (*node_list)->next;
- 
     return result;
 }
