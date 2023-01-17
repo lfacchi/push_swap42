@@ -20,13 +20,6 @@ typedef struct t_node
 	struct t_node	*next;
 }	t_node;
 
-typedef struct push_swap
-{
-	t_node **stacka;
-	t_node **stackb;
-}p_swap;
-
-
 
 // t_clist create_list(int *list, int size);
 t_node	**create_list(int *num_list, int n);
@@ -40,4 +33,3 @@ void	move_s(t_node *node);
 void	move_p(t_node **node1, t_node *node2);
 int		listlen(int *list);
 int		pop(t_node **node_list);
-p_swap	*start_program(char **argv, int n);
