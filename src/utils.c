@@ -17,7 +17,7 @@ t_node	*init_num(int v_node)
 	t_node *node;
 	if (v_node)
 	{
-		node = malloc(sizeof(t_node*));
+		node = malloc(sizeof(t_node));
 		node->next = NULL;
 		node->num = v_node;
 		return(node);
@@ -45,31 +45,35 @@ void insert_front(t_node *head, t_node *node)
 	return ;
 }
 
-void insert_back(t_node *tail, t_node *new)
-{
-	int temp;
-	if (!tail)
-		return ;
-	if (tail == NULL)
-		tail = new;
-	temp = tail->num;
-	tail->num = new->num;
-	insert_front(tail, new);
-	tail->next->num = temp;
-}
+// void insert_back(t_node **node_list, t_node *new)
+// {
+// 	t_node *temp;
+
+// 	temp = node_list[0]->next;
+// 	if (!node_list)
+// 		return ;
+// 	if (node_list == NULL)
+// 		node_list = new;
+// 	insert_front(temp, new);
+// }
 
 void print_list(t_node *node)
 {
 	int i;
 	i = 0;
+	node = node->next;
 	while (node)
 	{
-			printf("%d | %d\n", i, node->num);
-			node = node->next;
-			i++; 	
+		printf("%d\n", node->num);
+		node = node->next;
+		i++; 	
 	}
 }
 
+/* 
+@brief Returns the last number of a node list
+@param node t_node node
+ */
 int	top_value(t_node node)
 {
 	int top;
@@ -82,26 +86,46 @@ int	top_value(t_node node)
 	return (top); 
 }
 
-t_node	**create_list(int *num_list)
+int	listlen(int *list)
 {
-	int i = 0;
-	int j;
+	int top;
+	
+	while(list[top])
+		top++;
+	return (top); 
+}
+
+/* 
+@brief Allocate a and create a linkd list
+@param num_list a list of intgers
+ */
+t_node	**create_list(int *num_list, int n)
+{
+	int i = n;
 	t_node	**node_list;
 	t_node	*temp;
 
 	node_list = ft_calloc(1, sizeof(t_node *));
-	while(num_list[i])
+	*node_list = malloc(sizeof(t_node));
+	while(i >= 0)
 	{
-		if(i == 0)
-		{
-			*node_list = init_num(num_list[i]);
-		}
-		else
-		{
-			temp = init_num(num_list[i]);
-			insert_front(*node_list, temp);
-		}
-		i++;
+		temp = init_num(num_list[i]);
+		insert_front(*node_list, temp);
+		i--;
 	}
 	return(node_list);
+}
+
+int pop(t_node **node_list)
+{
+    t_node	*head = *node_list;
+    int		result;
+
+    head = head->next;
+    result = head->num;
+    if (*node_list == NULL)
+        return -1;
+    (*node_list) = (*node_list)->next;
+ 
+    return result;
 }

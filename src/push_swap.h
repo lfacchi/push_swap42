@@ -22,13 +22,14 @@ typedef struct t_node
 
 
 // t_clist create_list(int *list, int size);
+t_node	**create_list(int *num_list, int n);
 t_node	*init_num(int v_node);
-void insert_front(t_node *head, t_node *node);
-void insert_back(t_node *tail, t_node *node);
-void print_list(t_node *node);
-void move_r(t_node *node);
-void move_rr(t_node *node);
-int top_value(t_node node);
-void move_s(t_node *node);
-void move_p(t_node *node1, t_node *node2);
-t_node **create_list(int *num_list);
+void	insert_front(t_node *head, t_node *node);
+void	print_list(t_node *node);
+void	move_r(t_node *node);
+void	move_rr(t_node *node);
+int		top_value(t_node node);
+void	move_s(t_node *node);
+void	move_p(t_node **node1, t_node *node2);
+int		listlen(int *list);
+int		pop(t_node **node_list);
