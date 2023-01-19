@@ -17,7 +17,7 @@ CC		= gcc
 # CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
 
-SRCS	= main.c push_swap.c moves.c utils.c
+SRCS	= main.c push_swap.c moves.c moves2.c utils.c
 OBJSDIR	= obj
 OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
 
@@ -26,6 +26,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJSDIR} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} ${FT} -o $@
+	
 
 ${OBJSDIR}:
 	mkdir -p $@

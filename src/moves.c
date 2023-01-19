@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void move_r(t_node *node)
+void	move_r(t_node *node)
 {
 	int num;
 
-	num  = node->num;
+	num  = node->next->num;
 	while(node->next)
 	{
 		node->num = node->next->num;
@@ -24,13 +24,13 @@ void move_r(t_node *node)
 	}
 	node->num = num;
 }
-void move_rr(t_node *node)
+void	move_rr(t_node *node)
 {
 	int top;
 	int temp;
 	top = top_value(*node);
-	temp = node->num;
 	node->num = top;
+	temp = node->num;
 	if(node->next)
 		top = node->next->num;
 	node = node->next;
@@ -47,16 +47,17 @@ void move_rr(t_node *node)
 void move_s(t_node *node)
 {
 	int temp;
-
-	temp = node->num;
+	temp = node->next->num;
+	node = node->next;
 	node->num = node->next->num;
 	node->next->num = temp;
 }
 
-void move_p(t_node **node1, t_node *node2)
+void move_p(t_node **node1, t_node **node2)
 {
 	t_node *temp;
 	int num;
+
 	num = pop(node1);
-	insert_front(node2,init_num(num));
+	insert_front(*node2,init_num(num));
 }
