@@ -55,7 +55,6 @@ void move_s(t_node *node)
 
 void move_p(t_node **node1, t_node **node2)
 {
-	t_node *temp;
 	int num;
 
 	num = pop(node1);

@@ -45,17 +45,7 @@ void insert_front(t_node *head, t_node *node)
 	return ;
 }
 
-// void insert_back(t_node **node_list, t_node *new)
-// {
-// 	t_node *temp;
 
-// 	temp = node_list[0]->next;
-// 	if (!node_list)
-// 		return ;
-// 	if (node_list == NULL)
-// 		node_list = new;
-// 	insert_front(temp, new);
-// }
 
 void print_list(t_node *node)
 {
@@ -86,12 +76,18 @@ int	top_value(t_node node)
 	return (top); 
 }
 
-int	listlen(int *list)
+int	listlen(t_node **node_list)
 {
+	t_node *temp;
 	int top;
-	
-	while(list[top])
+
+	top = 0;
+	temp = *node_list;
+	while(temp)
+	{
 		top++;
+		temp = temp->next;
+	}
 	return (top); 
 }
 

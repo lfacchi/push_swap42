@@ -36,15 +36,20 @@ void	move_rr(t_node *node);
 int		top_value(t_node node);
 void	move_s(t_node *node);
 void	move_p(t_node **node1, t_node **node2);
-int		listlen(int *list);
+int		listlen(t_node **node_list);
 int		pop(t_node **node_list);
 p_swap	start_program(int argc, char **argv);
 
-void pa(p_swap push_swap);
-void pb(p_swap push_swap);
-void rra(p_swap *push_swap);
-void rrb(p_swap *push_swap);
-void rb(p_swap *push_swap);
-void ra(p_swap *push_swap);
-void sa(p_swap push_swap);
-void sb(p_swap push_swap);
+void	pa(p_swap push_swap);
+void	pb(p_swap push_swap);
+void	rra(p_swap *push_swap);
+void	rrb(p_swap *push_swap);
+void	rb(p_swap *push_swap);
+void	ra(p_swap *push_swap);
+void	sa(p_swap push_swap);
+void	sb(p_swap push_swap);
+
+//3 argumentos
+int		tree_args_factor(t_node *node);
+void	select_moves_3(p_swap push_swap, int factor);
+void	sort_3(p_swap push_swap);

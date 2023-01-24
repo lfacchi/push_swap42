@@ -14,15 +14,17 @@
 
 NAME	= push_swap
 CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
-
-SRCS	= main.c push_swap.c moves.c moves2.c utils.c
+NUM		= 3
+SRCS	= main.c push_swap.c moves.c moves2.c utils.c tree_args.c
 OBJSDIR	= obj
 OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
 
 all: ${NAME}
 	@clear
+	@shuf -i 1-$(NUM) -n $(NUM) | xargs ./push_swap
+	
 
 ${NAME}: ${OBJSDIR} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} ${FT} -o $@
@@ -38,9 +40,6 @@ ${OBJSDIR}/%.o: src/%.c src/push_swap.h
 
 ${FT}: 
 	@${MAKE} -C 42_libft
-
-# libft:
-# 	git clone https://github.com/lfacchi/42_libft
 
 clean:
 	${MAKE} clean -C 42_libft
