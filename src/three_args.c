@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tree_args.c                                        :+:      :+:    :+:   */
+/*   three_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:07:02 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/01/23 21:25:12 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:30:57 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		tree_args_factor(t_node *node)
+int		three_args_factor(t_node *node)
 {
 	int top;
 	int mid;
@@ -20,8 +20,9 @@ int		tree_args_factor(t_node *node)
 	int sum;
 
 	sum = 0;
+	// node = node->next;
 	node = node->next;
-	top = node->num; 
+	top = node->num;
 	mid = node->next->num; 
 	bottom = node->next->next->num;
 	if(top > mid)
@@ -29,7 +30,7 @@ int		tree_args_factor(t_node *node)
 	if(top > bottom)
 		sum++;
 	if(mid > bottom)
-		sum = sum + 3;	
+		sum = sum + 3;
 	return (sum);
 }
 
@@ -58,6 +59,6 @@ void sort_3(p_swap push_swap)
 	t_node	*temp;
 	int		factor;
 	temp = push_swap.stacka[0];
-	factor = tree_args_factor(temp);
+	factor = three_args_factor(temp);
 	select_moves_3(push_swap, factor);
 }

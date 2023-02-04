@@ -25,6 +25,7 @@ t_node	*init_num(int v_node)
 	else
 		return NULL;
 }
+
 /* 
 	@brief insert a node after the last node the head node
 	@param head pointer to head node of linked list
@@ -32,14 +33,14 @@ t_node	*init_num(int v_node)
  */
 void insert_front(t_node *head, t_node *node)
 {
-	if (!head)
-		return ;
 	if (head == NULL)
 	{
 		head = node;
 		return ;
 	}
-	if (head->next != NULL)
+	if (!head->num)
+		return;
+	if (head->next)
 		node->next = head->next;
 	head->next = node;
 	return ;
@@ -47,16 +48,14 @@ void insert_front(t_node *head, t_node *node)
 
 
 
+
 void print_list(t_node *node)
 {
-	int i;
-	i = 0;
-	node = node->next;
+	// node = node->next;
 	while (node)
 	{
 		printf("%d\n", node->num);
 		node = node->next;
-		i++; 	
 	}
 }
 
@@ -81,6 +80,8 @@ int	listlen(t_node **node_list)
 	t_node *temp;
 	int top;
 
+	if(node_list == NULL)
+		return(0);
 	top = 0;
 	temp = *node_list;
 	while(temp)
@@ -97,18 +98,21 @@ int	listlen(t_node **node_list)
  */
 t_node	**create_list(int *num_list, int n)
 {
-	int i = n;
+	int i;
 	t_node	**node_list;
 	t_node	*temp;
 
 	node_list = ft_calloc(1, sizeof(t_node *));
 	*node_list = malloc(sizeof(t_node));
-	while(i >= 0)
-	{
+	*node_list = init_num(*num_list);
+	i = 1;
+	while(i < n)
+	{	
 		temp = init_num(num_list[i]);
 		insert_front(*node_list, temp);
-		i--;
+		i++;
 	}
+	// printf("%d\n", node_list[0]->num);
 	return(node_list);
 }
 
@@ -117,11 +121,23 @@ int pop(t_node **node_list)
     t_node	*head = *node_list;
     int		result;
 
-    head = head->next;
+    // head = head->next;
     result = head->num;
     if (*node_list == NULL)
         return -1;
     (*node_list) = (*node_list)->next;
  
     return result;
+}
+
+int get_mid_position(t_node **stack)
+{
+	t_node *temp;
+	int len;
+
+	len = listlen(stack);
+	temp = *stack;
+	temp = temp->next;
+	len /= 2;
+	return (len);
 }

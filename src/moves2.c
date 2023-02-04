@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:28:34 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 00:00:52 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:34:58 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,42 @@
 
 void pa(p_swap push_swap)
 {
-	printf("pa\n");
-	move_p(push_swap.stacka, push_swap.stackb);
+	t_node *a;
+
+	int num;
+	if(listlen(push_swap.stacka) > 0)
+	{
+		printf("pa\n");
+		num = pop(push_swap.stacka);
+		a = init_num(num);
+		if (listlen(push_swap.stackb) == 0)
+			*(push_swap.stackb) = a;
+		else
+		{
+			insert_front(*(push_swap.stackb), a);
+			move_s(*(push_swap.stackb));
+		}
+	}
 }
 
 void pb(p_swap push_swap)
 {
-	move_p(push_swap.stackb, push_swap.stacka);
-	printf("pb\n");
+	t_node *a;
+
+	int num;
+	if (listlen(push_swap.stackb) > 0)
+	{
+		printf("pb\n");
+		num = pop(push_swap.stackb);
+		a = init_num(num);
+		if (listlen(push_swap.stacka) == 0)
+			*(push_swap.stackb) = a;
+		else
+		{
+			insert_front(*(push_swap.stacka), a);
+			move_s(*push_swap.stacka);
+		}
+	}
 }
 
 void ra(p_swap *push_swap)

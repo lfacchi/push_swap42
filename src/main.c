@@ -15,21 +15,15 @@
 int main(int argc, char **argv)
 {
 	p_swap	program;
-
 	if (argc > 2)
 	{
+		
 		program = start_program(argc, argv);
-		// rra(&program);
-		// sa(program);
-		sort_3(program);
-		print_list(*(program.stacka));
-		printf("\n%d\n", tree_args_factor(*(program.stacka)));
-		// printf("\n");
-		// print_list(*(program.stackb));
+		
 	}
 	else
 	{
-		write(2, "Error\n", 6);
+		write(2, "Input Error\n", 6);
 		exit(2);
 	}
 }

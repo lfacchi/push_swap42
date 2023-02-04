@@ -16,8 +16,8 @@ NAME	= push_swap
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
-NUM		= 3
-SRCS	= main.c push_swap.c moves.c moves2.c utils.c tree_args.c
+NUM		= 5
+SRCS	= main.c push_swap.c moves.c moves2.c utils.c tree_args.c five_args.c
 OBJSDIR	= obj
 OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
 

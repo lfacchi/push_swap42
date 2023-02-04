@@ -16,7 +16,7 @@ void	move_r(t_node *node)
 {
 	int num;
 
-	num  = node->next->num;
+	num  = node->num;
 	while(node->next)
 	{
 		node->num = node->next->num;
@@ -29,8 +29,8 @@ void	move_rr(t_node *node)
 	int top;
 	int temp;
 	top = top_value(*node);
-	node->num = top;
 	temp = node->num;
+	node->num = top;
 	if(node->next)
 		top = node->next->num;
 	node = node->next;
@@ -47,16 +47,7 @@ void	move_rr(t_node *node)
 void move_s(t_node *node)
 {
 	int temp;
-	temp = node->next->num;
-	node = node->next;
+	temp = node->num;
 	node->num = node->next->num;
 	node->next->num = temp;
-}
-
-void move_p(t_node **node1, t_node **node2)
-{
-	int num;
-
-	num = pop(node1);
-	insert_front(*node2,init_num(num));
 }

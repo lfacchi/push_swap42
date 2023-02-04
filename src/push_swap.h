@@ -35,7 +35,7 @@ void	move_r(t_node *node);
 void	move_rr(t_node *node);
 int		top_value(t_node node);
 void	move_s(t_node *node);
-void	move_p(t_node **node1, t_node **node2);
+void	move_p(t_node *node1, t_node *node2);
 int		listlen(t_node **node_list);
 int		pop(t_node **node_list);
 p_swap	start_program(int argc, char **argv);
@@ -50,6 +50,11 @@ void	sa(p_swap push_swap);
 void	sb(p_swap push_swap);
 
 //3 argumentos
-int		tree_args_factor(t_node *node);
+int		three_args_factor(t_node *node);
 void	select_moves_3(p_swap push_swap, int factor);
 void	sort_3(p_swap push_swap);
+
+//5 argumentos
+void five_args(p_swap push_swap);
+int	get_low(t_node **stacka);
+int get_high(t_node **stacka);
