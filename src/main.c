@@ -17,9 +17,9 @@ int main(int argc, char **argv)
 	p_swap	program;
 	if (argc > 2)
 	{
-		
 		program = start_program(argc, argv);
-		
+		five_args(program);
+		// print_list(*(program.stacka));
 	}
 	else
 	{

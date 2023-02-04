@@ -49,12 +49,13 @@ void	ra(p_swap *push_swap);
 void	sa(p_swap push_swap);
 void	sb(p_swap push_swap);
 
-//3 argumentos
-int		three_args_factor(t_node *node);
-void	select_moves_3(p_swap push_swap, int factor);
-void	sort_3(p_swap push_swap);
-
 //5 argumentos
 void five_args(p_swap push_swap);
 int	get_low(t_node **stacka);
 int get_high(t_node **stacka);
+
+//3 argumentos
+int		three_args_factor(t_node *node);
+void	select_moves_3(p_swap push_swap);
+void	sort_3(p_swap push_swap);
+

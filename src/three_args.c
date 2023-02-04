@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:07:02 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/02/01 21:30:57 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:35:13 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int		three_args_factor(t_node *node)
 	int sum;
 
 	sum = 0;
-	// node = node->next;
-	node = node->next;
 	top = node->num;
 	mid = node->next->num; 
 	bottom = node->next->next->num;
@@ -34,8 +32,11 @@ int		three_args_factor(t_node *node)
 	return (sum);
 }
 
-void	select_moves_3(p_swap push_swap, int factor)
+void sort_3(p_swap push_swap)
 {
+	int		factor;
+
+	factor = three_args_factor(*(push_swap.stacka));
 	if(factor == 1)
 		sa(push_swap);
 	if(factor == 2)
@@ -52,13 +53,4 @@ void	select_moves_3(p_swap push_swap, int factor)
 		sa(push_swap);
 		rra(&push_swap);
 	}
-}
-
-void sort_3(p_swap push_swap)
-{
-	t_node	*temp;
-	int		factor;
-	temp = push_swap.stacka[0];
-	factor = three_args_factor(temp);
-	select_moves_3(push_swap, factor);
 }

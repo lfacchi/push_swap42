@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:34:47 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/02/01 21:28:35 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/02/04 01:30:23 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,30 @@
 void five_args(p_swap push_swap)
 {
 	t_node *temp;
+	int h;
+	int l;
+	int count;
+	
+	count = 0;
+	h = get_high(push_swap.stacka);
+	l = get_low(push_swap.stacka);
 	temp = *(push_swap.stacka);
-	while(temp->num != get_low(push_swap.stacka))
+	while(temp->num != h || temp->num != l)
 	{
 		ra(&push_swap);
 		temp = *(push_swap.stacka);
+		if((temp->num == h || temp->num == l))
+		{
+			pa(push_swap);
+			count++;
+		}
+		if (count == 2)
+			break;
 	}
-	pa(push_swap);
-	// printf("head: %d\n", temp->num);
-	while((temp->num != get_high(push_swap.stacka)))
-	{
-		ra(&push_swap);
-		temp = *(push_swap.stacka);
-	}
-	pa(push_swap);
-	// sort_3(push_swap);
-	// pb(push_swap);
-	// pb(push_swap);
+	sort_3(push_swap);
+	pb(push_swap);
+	pb(push_swap);
+	ra(&push_swap);
 }
 
 int get_high(t_node **stacka)
@@ -40,7 +47,6 @@ int get_high(t_node **stacka)
 	t_node *temp;
 	
 	temp = *stacka;
-	temp = temp->next;
 	top = temp->num;
 	while(temp)
 	{
@@ -57,7 +63,6 @@ int	get_low(t_node **stacka)
 	t_node *temp;
 	
 	temp = *stacka;
-	temp = temp->next;
 	low = temp->num;
 	while(temp)
 	{
