@@ -14,10 +14,10 @@
 
 NAME	= push_swap
 CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
-NUM		= 5
-SRCS	= main.c push_swap.c moves.c moves2.c utils.c three_args.c five_args.c
+NUM		= 500
+SRCS	= main.c push_swap.c moves.c moves2.c utils.c three_args.c five_args.c sort_100.c
 OBJSDIR	= obj
 OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
 
@@ -25,6 +25,10 @@ all: ${NAME}
 	@clear
 	@shuf -i 1-$(NUM) -n $(NUM) | xargs ./push_swap
 	
+mem:
+	@shuf -i 1-$(NUM) -n $(NUM) | xargs ./push_swap
+
+
 
 ${NAME}: ${OBJSDIR} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} ${FT} -o $@

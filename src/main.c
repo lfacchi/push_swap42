@@ -14,12 +14,16 @@
 
 int main(int argc, char **argv)
 {
-	p_swap	program;
+	t_pswap	program;
 	if (argc > 2)
 	{
+
 		program = start_program(argc, argv);
-		five_args(program);
-		// print_list(*(program.stacka));
+
+		// five_args(program);
+		radix_sort(program);
+		is_sorted(program.stacka);
+		free_pswap(&program);
 	}
 	else
 	{

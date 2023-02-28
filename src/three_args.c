@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:07:02 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/02/04 00:35:13 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:27:56 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		three_args_factor(t_node *node)
 	return (sum);
 }
 
-void sort_3(p_swap push_swap)
+void sort_3(t_pswap push_swap)
 {
 	int		factor;
 

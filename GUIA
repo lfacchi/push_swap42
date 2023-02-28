@@ -1,9 +1,30 @@
-CRIAR LISTA DE NODES A PARTIR DE UMA LISTA DE INTEIROS
+/* prin
 
-VERIFICAÇÃO DOS NUMEROS DA LISTA
 
-ADICIONAR NODE NA LISTA
+printf("STACKA\n");
+print_list(*(program.stacka));
+printf("STACKB\n");
+print_list(*(program.stack));
 
-FAZER AS MOVIMENTAÇOES NA STACK (SA SB PA PB RRA RRB)
 
-ALGORITIMO SORT 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
