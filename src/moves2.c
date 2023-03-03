@@ -6,51 +6,11 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:28:34 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/02/27 20:16:07 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:56:30 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void pa(t_pswap push_swap)
-{
-	t_node *a;
-
-	int num;
-	if(listlen(push_swap.stacka) > 0)
-	{
-		printf("pa\n");
-		num = pop(push_swap.stacka);
-		a = init_num(num);
-		if (listlen(push_swap.stackb) == 0)
-			*(push_swap.stackb) = a;
-		else
-		{
-			insert_front(*(push_swap.stackb), a);
-			move_s(*(push_swap.stackb));
-		}
-	}
-}
-
-void pb(t_pswap push_swap)
-{
-	t_node *a;
-
-	int num;
-	if (listlen(push_swap.stackb) > 0)
-	{
-		printf("pb\n");
-		num = pop(push_swap.stackb);
-		a = init_num(num);
-		if (listlen(push_swap.stacka) == 0)
-			*(push_swap.stacka) = a;
-		else
-		{
-			insert_front(*(push_swap.stacka), a);
-			move_s(*push_swap.stacka);
-		}
-	}
-}
 
 void ra(t_pswap *push_swap)
 {
