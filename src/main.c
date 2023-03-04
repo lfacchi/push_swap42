@@ -12,31 +12,25 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_node **node_list;
-	// t_node *teste;
+	t_pswap	program;
+
 	if (argc > 2)
 	{
-		node_list = ft_calloc(argc - 1, sizeof(t_node*));
-		int i = 0;
-		int *list;
-		list = ft_calloc(argc - 1, sizeof(int));
-		while (argv[i])
+		program = start_program(argc, argv);
+		if (argc == 3)
 		{
-			list[i] = ft_atoi(argv[i + 1]);
-			node_list[i] = init_num(list[i]);
-			i++;
+			if (is_sorted(program.stacka) == 0)
+				ra(&program);
 		}
-		i = -1;
-		while (++i < argc - 1)
-			insert_front(node_list[i],node_list[i + 1]);
-		// teste = init_num(256);
-		// insert_back(node_list[0], teste);
-		print_list(*node_list);
-		// rotate_stack(*node_list);
-		// print_list(*node_list);
-		// rotate_stack(*node_list);
+		else if (argc == 4)
+			three_args(program);
+		else if (argc == 6)
+			five_args(program);
+		else
+			radix_sort(program);
+		free_pswap(&program);
 	}
 	else
 	{

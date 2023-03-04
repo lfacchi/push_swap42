@@ -1,32 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 21:58:21 by lucdos-s          #+#    #+#             */
-/*   Updated: 2022/12/14 21:58:21 by lucdos-s         ###   ########.fr       */
+/*   Created: 2023/03/03 15:07:43 by lucdos-s          #+#    #+#             */
+/*   Updated: 2023/03/04 00:14:56 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate_stack(t_node *node)
+void	move_r(t_node *node)
 {
-	int num;
+	int	num;
 
-	num  = node->num;
-	while(node->next)
+	num = node->num;
+	while (node->next)
 	{
 		node->num = node->next->num;
 		node = node->next;
 	}
-	// insert_front(node, init_num(num));
 	node->num = num;
 }
 
-// void r_rotate_stack(t_node *node)
-// {
-	
-// }
+void	ra(t_pswap *push_swap)
+{
+	move_r(*(push_swap->stacka));
+	printf("ra\n");
+}
+
+void	rb(t_pswap *push_swap)
+{
+	move_r(*(push_swap->stackb));
+	printf("rb\n");
+}
+
+void	multi_rb(t_pswap push_swap, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		rb(&push_swap);
+		i++;
+	}
+}
+
+void	multi_rra(t_pswap push_swap, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		rra(&push_swap);
+		i++;
+	}
+}

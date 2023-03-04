@@ -16,16 +16,22 @@ NAME	= push_swap
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 FT		= ./42_libft/libft.a
-
-SRCS	= main.c push_swap.c moves.c utils.c
+SRCS	= main.c push_swap.c \
+		push.c  rev-rotate.c  rotate.c swap.c \
+		three_args.c five_args.c radix.c\
+		helper.c validation.c utils.c
 OBJSDIR	= obj
 OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.c=%.o})
 
 all: ${NAME}
 	@clear
-
+	
+t:all
+	./teste.sh
+	
 ${NAME}: ${OBJSDIR} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} ${FT} -o $@
+	
 
 ${OBJSDIR}:
 	mkdir -p $@
@@ -38,15 +44,11 @@ ${OBJSDIR}/%.o: src/%.c src/push_swap.h
 ${FT}: 
 	@${MAKE} -C 42_libft
 
-# libft:
-# 	git clone https://github.com/lfacchi/42_libft
-
 clean:
-	${MAKE} clean -C 42_libft
+	rm -f valgrind_check/*
 	rm -rf ${OBJSDIR}
 
 fclean: clean
-	rm -rf 42_libft
 	rm -f ${NAME}
 
 re: fclean all
