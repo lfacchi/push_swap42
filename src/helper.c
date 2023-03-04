@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:11:17 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/02 15:20:22 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:18:54 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,43 @@ void	print_list(t_node *node, char mode)
 			printf("%d\n", node->num);
 		node = node->next;
 	}
+}
+
+int	count_moves(int num, t_node **stack)
+{
+	t_node	*temp;
+	int		moves;
+	int		len;
+
+	moves = 0;
+	len = listlen(stack);
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->num == num)
+			break ;
+		if (temp->next)
+			temp = temp->next;
+		moves++;
+	}
+	if (moves > (len / 2))
+		moves = -(len - moves);
+	return (moves);
+}
+
+/*
+@brief Returns the last number of a node list
+@param node t_node node
+ */
+int	top_value(t_node node)
+{
+	int	top;
+
+	while (node.next)
+	{
+		node.num = node.next->num;
+		node = *node.next;
+	}
+	top = node.num;
+	return (top);
 }

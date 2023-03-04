@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/* 
+	@brief allocate a node with v_node as num and return 
+*/
 t_node	*init_num(int v_node)
 {
 	t_node	*node;
@@ -27,6 +30,25 @@ t_node	*init_num(int v_node)
 }
 
 /*
+@brief extrac the head node from an stack and returns his value
+@param node t_node **node -> stack
+ */
+int	pop(t_node **node_list)
+{
+	t_node	*head;
+	int		result;
+
+	head = NULL;
+	head = *node_list;
+	result = head->num;
+	if (*node_list == NULL)
+		return (-1);
+	(*node_list) = (*node_list)->next;
+	free(head);
+	return (result);
+}
+
+/*
 	@brief insert a node after the last node the head node
 	@param head pointer to head node of linked list
 	@param node pointer to node be added
@@ -37,23 +59,6 @@ void	insert_front(t_node **head, t_node *node)
 		return ;
 	node->next = *head;
 	*head = node;
-}
-
-/*
-@brief Returns the last number of a node list
-@param node t_node node
- */
-int	top_value(t_node node)
-{
-	int	top;
-
-	while (node.next)
-	{
-		node.num = node.next->num;
-		node = *node.next;
-	}
-	top = node.num;
-	return (top);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:34:47 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/02 21:02:56 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:22:24 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,33 @@
 
 void	five_args(t_pswap push_swap)
 {
-	t_node	*temp;
-	int		h;
-	int		l;
-	int		count;
+	int		low;
+	int		second;
 
-	count = 0;
-	h = get_high(push_swap.stacka);
-	l = get_second(push_swap.stacka);
-	temp = *(push_swap.stacka);
-	while ((temp->num != h || temp->num != l) && count < 2)
+	low = 1;
+	second = 2;
+	if (ft_abs(count_moves(low, push_swap.stacka))
+		<= ft_abs(count_moves(second, push_swap.stacka)))
 	{
-		if (select_rotate(temp, push_swap.stacka) == 1)
-			ra(&push_swap);
-		else if (select_rotate(temp, push_swap.stacka) == 2)
-			rra(&push_swap);
-		if ((temp->num == h || temp->num == l))
-		{
-			pa(push_swap);
-			count++;
-		}
-		temp = *(push_swap.stacka);
+		select_rotate(low, push_swap);
+		pa(push_swap);
+		select_rotate(second, push_swap);
+		pa(push_swap);
 	}
-	if ((*push_swap.stacka)->num != h)
+	else if (ft_abs(count_moves(second, push_swap.stacka))
+		< ft_abs(count_moves(low, push_swap.stacka)))
+	{
+		select_rotate(second, push_swap);
+		pa(push_swap);
+		select_rotate(low, push_swap);
+		pa(push_swap);
+	}
+	if ((*push_swap.stackb)->num != second)
 		rb(&push_swap);
 	final_five_args(push_swap);
 }
 
-int	get_high(t_node **stacka)
-{
-	int		top;
-	t_node	*temp;
-
-	temp = *stacka;
-	top = temp->num;
-	while (temp)
-	{
-		if (top < temp->num)
-			top = temp->num;
-		temp = temp->next;
-	}
-	return (top);
-}
-
-int	get_second(t_node **stacka)
+int	get_low(t_node **stacka)
 {
 	int		low;
 	t_node	*temp;
@@ -78,6 +61,4 @@ void	final_five_args(t_pswap push_swap)
 	three_args(push_swap);
 	pb(push_swap);
 	pb(push_swap);
-	sa(push_swap);
-	ra(&push_swap);
 }

@@ -25,6 +25,7 @@ declare -A sequencias=(
 
 )
 
+norminette ./src
 
 for chave in "${!sequencias[@]}"; do
 	descricao="${sequencias[$chave]}"

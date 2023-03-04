@@ -1,56 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   three_args.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 21:07:02 by lucdos-s          #+#    #+#             */
+/*   Created: 2023/03/03 15:06:52 by lucdos-s          #+#    #+#             */
 /*   Updated: 2023/03/04 00:14:56 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	three_args_factor(t_node *node)
+void	pa(t_pswap push_swap)
 {
-	int	top;
-	int	mid;
-	int	bottom;
-	int	sum;
+	t_node	*a;
+	int		num;
 
-	sum = 0;
-	top = node->num;
-	mid = node->next->num;
-	bottom = node->next->next->num;
-	if (top > mid)
-		sum++;
-	if (top > bottom)
-		sum++;
-	if (mid > bottom)
-		sum = sum + 3;
-	return (sum);
+	a = NULL;
+	if (listlen(push_swap.stacka) > 0)
+	{
+		printf("pb\n");
+		num = pop(push_swap.stacka);
+		a = init_num(num);
+		if (listlen(push_swap.stackb) == 0)
+			*(push_swap.stackb) = a;
+		else
+			insert_front(push_swap.stackb, a);
+	}
 }
 
-void	three_args(t_pswap push_swap)
+void	pb(t_pswap push_swap)
 {
-	int		factor;
+	t_node	*a;
+	int		num;
 
-	factor = three_args_factor(*(push_swap.stacka));
-	if (factor == 1)
-		sa(push_swap);
-	if (factor == 2)
-		ra(&push_swap);
-	if (factor == 3)
+	a = NULL;
+	if (listlen(push_swap.stackb) > 0)
 	{
-		sa(push_swap);
-		ra(&push_swap);
-	}
-	if (factor == 4)
-		rra(&push_swap);
-	if (factor == 5)
-	{
-		sa(push_swap);
-		rra(&push_swap);
+		printf("pa\n");
+		num = pop(push_swap.stackb);
+		a = init_num(num);
+		if (listlen(push_swap.stacka) == 0)
+			*(push_swap.stacka) = a;
+		else
+			insert_front(push_swap.stacka, a);
 	}
 }

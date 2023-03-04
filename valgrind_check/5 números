@@ -1,0 +1,22 @@
+==1737== Memcheck, a memory error detector
+==1737== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1737== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1737== Command: ./push_swap 3 5 4 2 1
+==1737== 
+==1737== error calling PR_SET_PTRACER, vgdb might block
+rra
+pb
+rra
+pb
+sa
+ra
+pa
+pa
+==1737== 
+==1737== HEAP SUMMARY:
+==1737==     in use at exit: 0 bytes in 0 blocks
+==1737==   total heap usage: 13 allocs, 13 frees, 704 bytes allocated
+==1737== 
+==1737== All heap blocks were freed -- no leaks are possible
+==1737== 
+==1737== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

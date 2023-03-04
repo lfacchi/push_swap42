@@ -18,7 +18,7 @@
 t_pswap	start_program(int argc, char **argv)
 {
 	int		*list;
-	int		i; 
+	int		i;
 	t_pswap	program;
 
 	check_num(argv);
@@ -58,60 +58,24 @@ t_node	**create_list(int *num_list)
 }
 
 /*
-@brief extrac the head node from an stack and returns his value
-@param node t_node **node -> stack
- */
-int	pop(t_node **node_list)
-{
-	t_node	*head;
-	int		result;
-
-	head = NULL;
-	head = *node_list;
-	result = head->num;
-	if (*node_list == NULL)
-		return (-1);
-	(*node_list) = (*node_list)->next;
-	free(head);
-	return (result);
-}
-
-/*
-@brief extrac the head node from an stack and returns his value
-@param node t_node **node -> stack
- */
-int	get_mid_position(t_node **stack)
-{
-	t_node	*temp;
-	int		len;
-
-	len = listlen(stack);
-	temp = *stack;
-	temp = temp->next;
-	len /= 2;
-	return (len);
-}
-
-/*
 @brief verify the prosition of the node and rotate the corret way
  */
-int	select_rotate(t_node *node, t_node **stack)
+void	select_rotate(int num, t_pswap push)
 {
-	int		len;
 	int		count;
-	t_node	*temp;
+	int		i;
 
-	temp = NULL;
-	count = 0;
-	len = listlen(stack);
-	temp = node;
-	while (temp->next)
+	i = -1;
+	count = count_moves(num, push.stacka);
+	if (count > 0)
 	{
-		count++;
-		temp = temp->next;
+		while (++i < count)
+			ra(&push);
 	}
-	if (count > (len / 2))
-		return (1);
 	else
-		return (2);
+	{
+		count = count * (-1);
+		while (++i < count)
+			rra(&push);
+	}
 }

@@ -43,7 +43,7 @@ t_pswap	start_program(int argc, char **argv);
 t_node	**create_list(int *num_list);
 int		pop(t_node **node_list);
 int		get_mid_position(t_node **stack);
-int		select_rotate(t_node *node, t_node **stack);
+void	select_rotate(int num, t_pswap push);
 
 //moves.c
 void	move_r(t_node *node);
@@ -59,6 +59,10 @@ void	rb(t_pswap *push_swap);
 void	ra(t_pswap *push_swap);
 void	sa(t_pswap push_swap);
 void	sb(t_pswap push_swap);
+void	multi_rra(t_pswap push_swap, int n);
+void	multi_rrb(t_pswap push_swap, int n);
+void	multi_ra(t_pswap push_swap, int n);
+void	multi_rb(t_pswap push_swap, int n);
 
 //utils.c
 t_node	*init_num(int v_node);
@@ -70,13 +74,13 @@ int		top_value(t_node node);
 void	print_list(t_node *node, char mode);
 int		is_sorted(t_node **stack);
 void	map_rotate(t_pswap push_swap);
-int		search_num(t_node *stack, int num);
-int		count_moves(t_node *stack, int num);
-
+t_node	*search_num(int num, t_node **stack);
+int		count_moves(int num, t_node **stack);
+int		top_value(t_node node);
 
 //five_args.c
 void	five_args(t_pswap push_swap);
-int		get_second(t_node **stacka);
+int		get_low(t_node **stacka);
 int		get_high(t_node **stacka);
 
 //three_args.c

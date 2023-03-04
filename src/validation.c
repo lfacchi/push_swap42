@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 23:20:27 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/02 20:15:56 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:20:12 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ Incrementa cada elemento do array em 1
  */
 void	transform_array(int *arr)
 {
-	int	i = 0;
+	int	i;
 	int	min;
 
+	i = 0;
 	min = INT_MAX;
 	while (arr[i])
 	{
@@ -58,7 +59,6 @@ void	check_duplicate(int *arr)
 		}
 	}
 }
-
 
 void	check_num(char **arr)
 {
