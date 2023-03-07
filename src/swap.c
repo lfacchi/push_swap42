@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:10:10 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/04 00:14:56 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:06:08 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	move_s(t_node *node)
 
 void	sa(t_pswap push_swap)
 {
-	printf("sa\n");
+	write(1, "sa\n", 3);
 	move_s(*(push_swap.stacka));
 }
 
 void	sb(t_pswap push_swap)
 {
-	printf("sb\n");
+	write(1, "sb\n", 3);
 	move_s(*(push_swap.stackb));
 }

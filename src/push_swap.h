@@ -17,7 +17,6 @@
 # define INT_MIN -2147483648
 # include "../42_libft/libft.h"
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct t_node
 {
@@ -31,50 +30,51 @@ typedef struct push_swap
 	struct t_node	**stackb;
 }	t_pswap;
 
-char	*dec2bin(int d, int digits);
-
 //validation.c
 void	check_num(char **arr);
-void	transform_array(int *arr);
+void	transform_array(int *arr, int len);
 void	check_duplicate(int *arr);
+int		*bubble_sort(int *arr, int size);
 
 //push_swap.c
 t_pswap	start_program(int argc, char **argv);
 t_node	**create_list(int *num_list);
-int		pop(t_node **node_list);
-int		get_mid_position(t_node **stack);
 void	select_rotate(int num, t_pswap push);
 
-//moves.c
+//rotate.c
 void	move_r(t_node *node);
+void	rb(t_pswap *push_swap);
+void	ra(t_pswap *push_swap);
+void	multi_rb(t_pswap push_swap, int n);
+void	multi_ra(t_pswap push_swap, int n);
+
+//rev-rotate.c
 void	move_rr(t_node *node);
-void	move_s(t_node *node);
+void	rra(t_pswap *push_swap);
+void	rrb(t_pswap *push_swap);
+void	multi_rra(t_pswap push_swap, int n);
+void	multi_rrb(t_pswap push_swap, int n);
+
+//push.c
 void	pa(t_pswap push_swap);
 void	pb(t_pswap push_swap);
 
-//moves2.c
-void	rra(t_pswap *push_swap);
-void	rrb(t_pswap *push_swap);
-void	rb(t_pswap *push_swap);
-void	ra(t_pswap *push_swap);
+//swap.c
+void	move_s(t_node *node);
 void	sa(t_pswap push_swap);
 void	sb(t_pswap push_swap);
-void	multi_rra(t_pswap push_swap, int n);
-void	multi_rrb(t_pswap push_swap, int n);
-void	multi_ra(t_pswap push_swap, int n);
-void	multi_rb(t_pswap push_swap, int n);
 
 //utils.c
 t_node	*init_num(int v_node);
 void	insert_front(t_node **head, t_node *node);
 int		listlen(t_node **node_list);
-int		top_value(t_node node);
+int		is_sorted(t_node **stack);
+int		pop(t_node **node_list);
 
 //helper
+void	swap(int a, int b);
+char	*dec2bin(int d, int digits);
 void	print_list(t_node *node, char mode);
-int		is_sorted(t_node **stack);
-void	map_rotate(t_pswap push_swap);
-t_node	*search_num(int num, t_node **stack);
 int		count_moves(int num, t_node **stack);
 int		top_value(t_node node);
 

@@ -27,7 +27,7 @@ t_pswap	start_program(int argc, char **argv)
 	while (++i < argc - 1)
 		list[i] = ft_atoi(argv[i + 1]);
 	check_duplicate(list);
-	transform_array(list);
+	transform_array(list, argc - 1);
 	program.stacka = create_list(list);
 	program.stackb = ft_calloc(1, sizeof(struct t_node *));
 	free(list);
@@ -50,7 +50,7 @@ t_node	**create_list(int *num_list)
 		i++;
 	node_list = ft_calloc(1, sizeof(t_node));
 	while (--i >= 0)
-	{	
+	{
 		temp = init_num(num_list[i]);
 		insert_front(node_list, temp);
 	}

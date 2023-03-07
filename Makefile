@@ -45,7 +45,6 @@ ${FT}:
 	@${MAKE} -C 42_libft
 
 clean:
-	rm -f valgrind_check/*
 	rm -rf ${OBJSDIR}
 
 fclean: clean

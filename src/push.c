@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:06:52 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/04 00:14:56 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:05:05 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_pswap push_swap)
 	a = NULL;
 	if (listlen(push_swap.stacka) > 0)
 	{
-		printf("pb\n");
+		write(1, "pb\n", 3);
 		num = pop(push_swap.stacka);
 		a = init_num(num);
 		if (listlen(push_swap.stackb) == 0)
@@ -38,7 +38,7 @@ void	pb(t_pswap push_swap)
 	a = NULL;
 	if (listlen(push_swap.stackb) > 0)
 	{
-		printf("pa\n");
+		write(1, "pa\n", 3);
 		num = pop(push_swap.stackb);
 		a = init_num(num);
 		if (listlen(push_swap.stacka) == 0)

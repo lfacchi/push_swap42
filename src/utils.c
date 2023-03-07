@@ -19,13 +19,9 @@ t_node	*init_num(int v_node)
 {
 	t_node	*node;
 
-	node = NULL;
-	if (v_node)
-	{
-		node = malloc(sizeof(t_node));
-		node->next = NULL;
-		node->num = v_node;
-	}
+	node = malloc(sizeof(t_node));
+	node->next = NULL;
+	node->num = v_node;
 	return (node);
 }
 
