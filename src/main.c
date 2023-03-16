@@ -16,21 +16,21 @@ int	main(int argc, char **argv)
 {
 	t_pswap	program;
 
-	if (argc > 2)
+	if (argc >= 2)
 	{
 		program = start_program(argc, argv);
-		if (argc == 3)
-		{
-			if (is_sorted(program.stacka) == 0)
-				ra(&program);
-		}
-		else if (argc == 4)
-			three_args(program);
-		else if (argc == 6)
-			five_args(program);
-		else
-			radix_sort(program);
-		free_pswap(&program);
+        if (is_sorted(program.stacka) == 0)
+        {
+            if (argc == 3)
+                ra(&program);
+            else if (argc == 4)
+                three_args(program);
+            else if (argc == 6)
+                five_args(program);
+            else
+                radix_sort(program);
+        }
+        free_pswap(&program);
 	}
 	else
 	{

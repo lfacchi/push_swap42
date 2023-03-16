@@ -6,36 +6,39 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 23:20:27 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/04 00:20:12 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:11:28 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* 
-@brief Encontra o valor mínimo e o valor máximo no array
-Subtrai o valor mínimo de cada elemento do array
-Incrementa cada elemento do array em 1
+/*
+@brief Transform the value of the elements of an array 
+in this ranked values on the array 
  */
-void	transform_array(int *arr)
+void	transform_array(int *arr, int len)
 {
 	int	i;
-	int	min;
+	int	j;
+	int	*sorted;
 
+	sorted = bubble_sort(arr, len);
 	i = 0;
-	min = INT_MAX;
-	while (arr[i])
+	while (i < len)
 	{
-		if (arr[i] < min)
-			min = arr[i];
+		j = 0;
+		while (j < len)
+		{
+			if (arr[i] == sorted[j])
+			{
+				arr[i] = j + 1;
+				break ;
+			}
+			j++;
+		}
 		i++;
 	}
-	i = 0;
-	while (arr[i])
-	{
-		arr[i] = arr[i] - min + 1;
-		i++;
-	}
+	free(sorted);
 }
 
 void	check_duplicate(int *arr)
@@ -70,6 +73,8 @@ void	check_num(char **arr)
 	while (arr[i])
 	{
 		j = 0;
+		if (arr[i][j] == '-')
+			j++;
 		while (arr[i][j])
 		{
 			if (!ft_isdigit(arr[i][j]))
@@ -81,4 +86,32 @@ void	check_num(char **arr)
 		}
 		i++;
 	}
+}
+
+int	*bubble_sort(int *arr, int size)
+{
+	int	i;
+	int	j;
+	int	*sorted;
+	int	temp;
+
+	i = -1;
+	sorted = (int *) malloc(size * sizeof(int));
+	while (++i < size)
+		sorted[i] = arr[i];
+	i = -1;
+	while (++i < size - 1)
+	{
+		j = -1;
+		while (++j < size - i - 1)
+		{
+			if (sorted[j] > sorted[j + 1])
+			{
+				temp = sorted[j];
+				sorted[j] = sorted[j + 1];
+				sorted[j + 1] = temp;
+			}
+		}
+	}
+	return (sorted);
 }

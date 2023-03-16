@@ -18,11 +18,10 @@ declare -A sequencias=(
 	["2 números"]="2 5"
 	["3 números"]=$SEQ3
 	["5 números"]=$SEQ5
+	["5 números com negativos"]="5 -6 7 1 -10"
 	["100 números"]=$SEQ100
 	["500 números"]=$SEQ500
-	["Numeros repetidos"]="1 2 3 4 5 6 7 8 9 10 1" 
-
-
+	["Numeros repetidos"]="1 2 3 4 5 6 7 8 9 10 1"
 )
 
 norminette ./src

@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:11:17 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/04 00:18:54 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:29:38 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	swap(int a, int b)
 {
 	int	tmp;
 
-		tmp = a;
-		a = b;
-		b = tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
 }
 
 char	*dec2bin(int d, int digits)
@@ -37,8 +37,7 @@ char	*dec2bin(int d, int digits)
 	{
 		if (d % 2)
 			bin[i] = '1';
-		else
-			bin[i] = '0';
+		else			bin[i] = '0';
 		d /= 2;
 		i++;
 	}
@@ -55,9 +54,9 @@ void	print_list(t_node *node, char mode)
 	while (node)
 	{
 		if (mode == 'b')
-			printf("%s\n", dec2bin(node->num, 5));
+			ft_putstr_fd(dec2bin(node->num, 32), 1);
 		else
-			printf("%d\n", node->num);
+			ft_putnbr_fd(node->num, 1);
 		node = node->next;
 	}
 }

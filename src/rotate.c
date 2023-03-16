@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:07:43 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/04 00:14:56 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:06:23 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	move_r(t_node *node)
 void	ra(t_pswap *push_swap)
 {
 	move_r(*(push_swap->stacka));
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_pswap *push_swap)
 {
 	move_r(*(push_swap->stackb));
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	multi_rb(t_pswap push_swap, int n)
