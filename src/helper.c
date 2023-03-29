@@ -6,7 +6,7 @@
 /*   By: lucdos-s <lukas.facchi@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:11:17 by lucdos-s          #+#    #+#             */
-/*   Updated: 2023/03/05 20:29:38 by lucdos-s         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:56:24 by lucdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ char	*dec2bin(int d, int digits)
 	{
 		if (d % 2)
 			bin[i] = '1';
-		else			bin[i] = '0';
+		else
+			bin[i] = '0';
 		d /= 2;
 		i++;
 	}

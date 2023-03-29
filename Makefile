@@ -49,5 +49,6 @@ clean:
 
 fclean: clean
 	rm -f ${NAME}
+	rm -rf valgrind_check
 
 re: fclean all
